@@ -1,0 +1,9 @@
+{
+    "name": "WorkMarketingNet.Web",
+    "private": true,
+    "dependencies": {
+        "polymer": "Polymer/polymer#^0.5"
+    },
+    "exportsOverride": {
+    }
+}
