@@ -49,12 +49,14 @@ module.exports = function (grunt) {
 			main: {
 				files: [
 				  // includes files within path
-				  { expand: true, flatten: true, src: ['assets/polymer/*'], dest: 'wwwroot/polymer/', filter: 'isFile' }
+				  { expand: true, flatten: true, src: ['assets/polymer/elements/*'], dest: 'wwwroot/polymer/elements', filter: 'isFile' },
+				  { expand: true, flatten: true, src: ['assets/images/*.svg'], dest: 'wwwroot/images', filter: 'isFile' },
+				  { expand: true, flatten: true, src: ['assets/json/*.json'], dest: 'wwwroot/json', filter: 'isFile' }
 				],
 			},
 		},
 	});
-	
+
 	grunt.loadNpmTasks("grunt-bower-task");
 	grunt.loadNpmTasks('grunt-newer');
 	grunt.loadNpmTasks('grunt-contrib-copy');

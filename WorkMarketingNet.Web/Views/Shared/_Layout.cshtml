@@ -2,10 +2,13 @@
 <html>
 <head>
 	<title>@ViewBag.Title</title>
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
 	<link href="/css/themes/default.css" rel="stylesheet" />
 	@RenderSection("polymer", false)
+	@RenderSection("styles", false)
 </head>
-<body>
+<body unresolved> @*unresolved is to prevent FOUC*@
 	@RenderBody()
+	@RenderSection("scripts", false)
 </body>
 </html>
