@@ -1,0 +1,83 @@
+﻿@*
+	For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+	ViewBag.Title = "WorkMarketingNet";
+}
+
+@section polymer{
+	<!-- Load platform support before any code that touches the DOM. -->
+	<script src="/lib/webcomponentsjs/webcomponents.js"></script>
+
+	<!-- Load the component using an HTML Import -->
+	<link rel="import" href="/lib/core-header-panel/core-header-panel.html">
+	<link rel="import" href="/lib/core-toolbar/core-toolbar.html">
+	<link rel="import" href="/lib/paper-tabs/paper-tabs.html">
+	<link rel="import" href="/lib/font-roboto/roboto.html">
+	@*<link rel="import" href="/polymer/my-element.html">*@
+	@*<link rel="import" href="/polymer/elements/post-card.html">*@
+	<link rel="import" href="/polymer/elements/post-list.html">
+}
+
+@section styles{
+	<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+			background-color: #E5E5E5;
+			font-family: 'RobotoDraft', sans-serif;
+		}
+
+		core-header-panel {
+			height: 100%;
+			overflow: auto;
+			-webkit-overflow-scrolling: touch;
+		}
+
+		core-toolbar {
+			background: #03a9f4;
+			color: white;
+		}
+
+		#tabs {
+			width: 100%;
+			margin: 0;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			text-transform: uppercase;
+		}
+	</style>
+}
+
+<!-- Declare the element by its tag. -->
+@*<my-element></my-element>*@
+
+<core-header-panel>
+
+	<core-toolbar>
+		<paper-tabs id="tabs" selected="all" self-end>
+			<paper-tab name="all">All</paper-tab>
+			<paper-tab name="favorites">Favorites</paper-tab>
+		</paper-tabs>
+	</core-toolbar>
+
+	<div class="container" layout vertical center>
+
+		<post-list show="all"></post-list>
+
+	</div>
+
+</core-header-panel>
+
+@section scripts{
+	<script>
+		var tabs = document.querySelector('paper-tabs');
+		var list = document.querySelector('post-list');
+
+		tabs.addEventListener('core-select', function () {
+			list.show = tabs.selected;
+		});
+	</script>
+}
