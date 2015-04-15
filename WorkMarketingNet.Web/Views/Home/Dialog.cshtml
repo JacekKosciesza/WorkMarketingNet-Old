@@ -1,0 +1,25 @@
+﻿<paper-action-dialog heading="Sign in" id="dialog">
+	<hr />
+	<div>
+		<paper-input-decorator label="Email" floatinglabel error="Email is required!" autovalidate>
+			<input is="core-input" required>
+		</paper-input-decorator>
+		<paper-input-decorator label="Password" floatinglabel error="Password is required!">
+			<input is="core-input" required>
+		</paper-input-decorator>
+		<core-label horizontal layout id="core-label-1">
+			<paper-checkbox checked="" for="" role="checkbox" tabindex="0" aria-checked="true" aria-labelledby="core-label-1"></paper-checkbox>
+			<div vertical layout>
+				<h4>Stay signed in</h4>
+			</div>
+		</core-label>
+	</div>
+	<paper-button affirmative autofocus class="colored custom">
+		<core-icon icon="check"></core-icon>
+		ok
+	</paper-button>
+	<paper-button affirmative class="custom">
+		<core-icon icon="clear"></core-icon>
+		cancel
+	</paper-button>
+</paper-action-dialog>

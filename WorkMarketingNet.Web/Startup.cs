@@ -2,6 +2,9 @@
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Http;
 using Microsoft.Framework.DependencyInjection;
+using WorkMarketingNet.Web.Repositories;
+using WorkMarketingNet.Web.Services;
+using WorkMarketingNet.Web.Data;
 
 namespace WorkMarketingNet.Web
 {
@@ -12,6 +15,15 @@ namespace WorkMarketingNet.Web
         {
 			// Add MVC services to the services container.
 			services.AddMvc();
+
+			services.AddEntityFramework()
+				.AddSqlServer()
+				.AddDbContext<DataContext>();
+
+			services.AddSingleton<ICompaniesRepository, CompaniesRepository>();
+			services.AddSingleton<ILocalizationService, LocalizationService>();
+			services.AddSingleton<IGlobalizationService, GlobalizationService>();
+			services.AddSingleton<IDictionaryService, DictionaryHardcoded>();
 		}
 
         public void Configure(IApplicationBuilder app)

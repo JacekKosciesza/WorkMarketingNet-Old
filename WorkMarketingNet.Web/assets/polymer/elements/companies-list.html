@@ -1,0 +1,36 @@
+﻿<link rel="import" href="/lib/polymer/polymer.html">
+<link rel="import" href="/polymer/elements/companies-service.html">
+<link rel="import" href="/polymer/elements/company-card.html">
+
+<polymer-element name="companies-list" attributes="show">
+	<template>
+		<style>
+			:host {
+				display: block;
+				width: 100%;
+			}
+
+			post-card {
+				margin-bottom: 30px;
+			}
+		</style>
+
+		<companies-service id="service" companies="{{companies}}"></companies-service>
+
+		<div layout vertical center>
+
+			<template repeat="{{company in companies}}">
+				<post-card>
+					<img src="{{company.Logo.Url}}" width="70" height="70">
+					<h2>{{company.Name}}</h2>
+					<!--<p>{{company.Description}}</p>-->
+				</post-card>
+			</template>
+
+		</div>
+	</template>
+	<script>
+		Polymer({
+		});
+	</script>
+</polymer-element>

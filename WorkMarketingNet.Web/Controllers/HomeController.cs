@@ -11,5 +11,12 @@ namespace WorkMarketingNet.Web.Controllers
         {
             return View();
         }
-    }
+
+		[Route("settings")]
+		//[LocalRoute]
+		public IActionResult Settings()
+		{
+			return View();
+		}
+	}
 }

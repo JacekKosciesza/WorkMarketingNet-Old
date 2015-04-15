@@ -1,0 +1,9 @@
+﻿@inject WorkMarketingNet.Web.Services.ILocalizationService Localization
+
+@functions{
+	string T(string text, params object[] args) { return Localization.Translate(text, args); }
+}
+
+<article>
+	<h1>@T("Settings")</h1>
+</article>

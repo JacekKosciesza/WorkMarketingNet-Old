@@ -1,0 +1,29 @@
+<link rel="import" href="/lib/polymer/polymer.html">
+<link rel="import" href="/lib/core-ajax/core-ajax.html">
+
+<polymer-element name="companies-service" attributes="companies">
+  <template>
+    <style>
+    :host {
+      display: none;
+    }
+    </style>
+    <core-ajax id="ajax"
+      auto
+      url="/api/companies"
+      on-core-response="{{companiesLoaded}}"
+      handleAs="json">
+    </core-ajax>
+  </template>
+  <script>
+  Polymer('companies-service', {
+    created: function() {
+      this.companies = [];
+    },
+    companiesLoaded: function () {
+      // Make a copy of the loaded data
+    	this.companies = this.$.ajax.response.slice(0);
+    },
+  });
+  </script>
+</polymer-element>
