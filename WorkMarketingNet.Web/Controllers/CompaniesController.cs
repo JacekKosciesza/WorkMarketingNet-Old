@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNet.Mvc;
+using Microsoft.AspNet.SignalR;
+using Microsoft.AspNet.SignalR.Infrastructure;
 using System;
 using System.Collections.Generic;
+using WorkMarketingNet.Web.Hubs;
 using WorkMarketingNet.Web.Models;
 using WorkMarketingNet.Web.Repositories;
 
@@ -12,16 +15,20 @@ namespace WorkMarketingNet.Web.Controllers
 	public class CompaniesController : Controller
     {
 		private readonly ICompaniesRepository _repository;
+		private IHubContext _hub;
 
-		public CompaniesController(ICompaniesRepository repository)
+		public CompaniesController(ICompaniesRepository repository, IConnectionManager connectionManager)
 		{
 			_repository = repository;
+			_hub = connectionManager.GetHubContext<ToastHub>();
 		}
 
 		// GET /api/companies
 		[HttpGet]		
 		public IEnumerable<Company> GetAll()
 		{
+			var toast = new Toast { Text = "All Comapnies" };
+            _hub.Clients.All.show(toast);
 			return _repository.All;
 		}
 

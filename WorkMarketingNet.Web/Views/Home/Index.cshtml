@@ -54,6 +54,8 @@
 	<link href="/lib/paper-input/paper-input-decorator.html" rel="import">
 	<link href="/lib/paper-input/paper-input.html" rel="import">
 	<link href="/lib/paper-input/paper-char-counter.html" rel="import">*@
+
+	<link rel="import" href="/lib/paper-toast/paper-toast.html">
 }
 
 	<template is="auto-binding">
@@ -113,10 +115,13 @@
 				</core-animated-pages>
 			</div>
 		</core-scaffold>
-		
+		<paper-toast id="toast1" class="capsule" text="{{toast.Text}}" style="padding-right: 60px;"></paper-toast>
 	</template>
 
 @section scripts{
+	<script src="/lib/jquery/jquery.js"></script>
+	<script src="/lib/signalr/jquery.signalr.js"></script>
+	<script src="~/signalr/hubs"></script>
 	<script>
 		var template = document.querySelector('template[is="auto-binding"]');
 		template.pages = [
@@ -170,5 +175,18 @@
 		//	var dialog = document.querySelector('#dialog');
 		//	dialog.toggle();
 		//};
+	
+		$.connection.hub.logging = true;
+		var toastHub = $.connection.toast;
+
+		toastHub.client.show = function (toast) {
+			template.toast = toast;
+			document.querySelector('#toast1').show()
+			//alert(toast.Text);
+		};
+
+		$.connection.hub.start().done(function () {
+			console.log('hub connection open');
+		});
 	</script>
 }

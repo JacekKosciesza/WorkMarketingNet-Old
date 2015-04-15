@@ -5,6 +5,12 @@ VisualStudioVersion = 14.0.22609.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WorkMarketingNet.Web", "WorkMarketingNet.Web\WorkMarketingNet.Web.kproj", "{CB26F45B-347A-47FA-A773-05D87F17F56D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{BF1CF4EA-4977-47EA-A557-9D4554184F7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkMarketingNet.Tests.Unit", "Tests\WorkMarketingNet.Tests.Unit\WorkMarketingNet.Tests.Unit.csproj", "{EAE5F6AD-2BC5-489B-9FD2-37157EEF10E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkMarketingNet.Tests.Integration", "Tests\WorkMarketingNet.Tests.Integration\WorkMarketingNet.Tests.Integration.csproj", "{ABB71FB1-59B8-4D51-AD67-2C0A14DC11C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +21,20 @@ Global
 		{CB26F45B-347A-47FA-A773-05D87F17F56D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB26F45B-347A-47FA-A773-05D87F17F56D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB26F45B-347A-47FA-A773-05D87F17F56D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAE5F6AD-2BC5-489B-9FD2-37157EEF10E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAE5F6AD-2BC5-489B-9FD2-37157EEF10E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAE5F6AD-2BC5-489B-9FD2-37157EEF10E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAE5F6AD-2BC5-489B-9FD2-37157EEF10E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABB71FB1-59B8-4D51-AD67-2C0A14DC11C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABB71FB1-59B8-4D51-AD67-2C0A14DC11C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABB71FB1-59B8-4D51-AD67-2C0A14DC11C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABB71FB1-59B8-4D51-AD67-2C0A14DC11C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EAE5F6AD-2BC5-489B-9FD2-37157EEF10E2} = {BF1CF4EA-4977-47EA-A557-9D4554184F7C}
+		{ABB71FB1-59B8-4D51-AD67-2C0A14DC11C2} = {BF1CF4EA-4977-47EA-A557-9D4554184F7C}
 	EndGlobalSection
 EndGlobal

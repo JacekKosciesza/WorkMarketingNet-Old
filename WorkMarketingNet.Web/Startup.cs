@@ -16,6 +16,9 @@ namespace WorkMarketingNet.Web
 			// Add MVC services to the services container.
 			services.AddMvc();
 
+			//Add all SignalR related services to IoC.
+			services.AddSignalR();
+
 			services.AddEntityFramework()
 				.AddSqlServer()
 				.AddDbContext<DataContext>();
@@ -30,6 +33,9 @@ namespace WorkMarketingNet.Web
         {
 			// Add static files to the request pipeline.
 			app.UseStaticFiles();
+
+			//Configure SignalR
+			app.UseSignalR();
 
 			// Add MVC to the request pipeline.
 			app.UseMvc(routes =>
